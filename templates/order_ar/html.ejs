@@ -1,0 +1,219 @@
+<!doctype html>
+<html dir="rtl">
+<head>
+<title>Order</title>
+</head>
+<body style="background:#999;">
+<table border="0" cellpadding="0" cellspacing="0" style="border:none; max-width:600px; margin:0 auto; font-family:'Helvetica Neue', Arial, Helvetica, sans-serif; table-layout:fixed; direction:rtl;">
+<!--[if(gte mso 9)|(IE)]>
+<table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+<![endif]-->
+<tbody>
+<tr style="background:#fff;">
+<td>
+<table border="0" align="center" width="100%" cellpadding="0" cellspacing="0" style="border:none;">
+<!--[if(gte mso 9)|(IE)]>
+<table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+<![endif]-->
+<tbody>
+<tr style="background-color:#fff;">
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align="center"><img src="http://app.cleanlineapp.com/production/cleanline-logo.png" width="200" height="105" alt="Cleanline" style="max-width:100%; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#000000;"></td>
+</tr>
+<tr style="background-color:#fff;">
+<td>&nbsp;</td>
+</tr>
+</tbody>
+<!--[if(gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</table>
+</td>
+</tr>
+<tr style="background-color:#fff;">
+<td>
+<div class="editabletemplatebox" style="font-family:Arial, Helvetica, sans-serif;  color:#000000; line-height:17px;padding:0 30px;">
+<table border="1" align="center" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #ddd; border-collapse:collapse;">
+<!--[if(gte mso 9)|(IE)]>
+<table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+<![endif]-->
+<tbody>
+    <tr>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; ">رقم الطلب</td>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;"><%= custom.order_no %></td>
+    </tr>
+    <tr>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; ">سرعة التوصيل</td>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif;  color:#1bb5e9;"><%= (custom.deliveryMethod == "1")? "علدي":"التعبير" %></td>
+    </tr>
+    <tr>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; ">الإستلام</td>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;"><%=  custom.pickUp_date %>
+                                            <%= custom.pickUp_address %></td>
+    </tr>
+    <tr>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; ">التوصيل</td>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;"><%= custom.dropOff_date %>
+                                            <%= custom.dropOff_address %></td>
+    </tr>
+    <tr>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; ">تعليمات اخرى</td>
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;"><%= custom.info %>.</td>
+    </tr>
+<!--[if(gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr style="background-color:#fff;">
+<td>&nbsp; </td>
+</tr>
+<tr style="background-color:#fff;">
+<td>
+<div class="editabletemplatebox" style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#000000; line-height:17px;padding:0 30px;">
+<table border="0" align="center" width="100%" cellpadding="0" cellspacing="0" style="border:0px solid #ddd; border-collapse:collapse; direction:rtl;">
+<!--[if(gte mso 9)|(IE)]>
+<table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+<![endif]-->
+<tbody>
+	<tr style="background-color:#fff;">
+    	<td><hr></td>
+    </tr>
+    <tr>
+        <td  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px;"><strong>فاتورتك</strong></td>
+    </tr>
+    <tr>
+        <td  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif;  line-height:1.4;">عند وجود إختلاف، يرجى التواصل من خلال ميزة الدردشة المباشرة داخل التطبيق</td>
+    </tr>
+    <tr style="background-color:#fff;">
+    	<td>&nbsp;</td>
+    </tr>
+    <tr style="background-color:#fff;">
+    <td>
+    	<table border="1" align="center" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #ddd; border-collapse:collapse;">
+        <!--[if(gte mso 9)|(IE)]>
+        <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+        <![endif]-->
+        <tbody>
+            <tr style="background-color:#71cdf4;">
+                <th align="center" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">الخدمة</th>
+                <th align="center" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">الصنف</th>
+                <th align="center" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">الكمية</th>
+                <th align="center" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">سعر الوحدة <span style="float:right;">(SAR)</span></th>
+                <th align="center" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">المجموع الفرعي <span style="float:right;">(SAR)</span></th>
+            </tr>
+			<% custom.order_detail.data.forEach(function(value) {  
+				value.item_details.forEach(function(item){ %>
+					 <tr>
+						<td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;"><%= value. category_name_ar %></td>
+						<td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;"><%= item. item_name_ar %></td>
+						<td align="right" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;"><%= item. count %></td>
+						<td align="right" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;"><%= item. unit_price %></td>
+						<td align="right" style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;"><%= item. items_price%></td>
+					</tr>
+				<%})%>
+            <% }) %>
+            
+           <tr style="background-color:#71cdf4;">
+                <td colspan="4"  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold;">المجموع‬ <br>الدفع‬ ‫طريقة</td>
+                <td  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold;">SAR <%= custom.order_detail.final_price %> <br/>‫نقدي‬</td>
+            </tr>
+            <tr style="background-color:#ffffff;">
+              <td colspan="4"  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; ">الخصم الترويجي</td>
+              <td align="right"  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;"><%=custom.order_detail.promo_discount %></td>
+            </tr>
+            <tr style="background-color:#ffffff;">
+              <td colspan="4"  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; ">خصم المكافآت </td>
+              <td align="right"  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;"><%=custom.order_detail.point_discount %></td>
+            </tr>
+            <tr style="background-color:#ffffff;">
+                <td colspan="4"  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">المجموع</td>
+                <td align="right"  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;"><%=custom.order_detail.points_earned %></td>
+            </tr>
+        </tbody>
+        <!--[if(gte mso 9)|(IE)]>
+        </table>
+        <![endif]-->
+        </table>
+    </td>
+    </tr> 
+    <tr style="background-color:#fff;">
+    	<td>&nbsp;</td>
+    </tr>
+    <tr style="background-color:#fff;">
+    	<td><hr></td>
+    </tr>
+    <tr style="background-color:#fff;">
+    	<td>&nbsp;</td>
+    </tr>   
+    <tr>
+        <td  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px;"><strong>غسيل مجاني لك ولأصحابك؟</strong></td>
+    </tr>
+    <tr>
+        <td  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.4;">إحصل على طلب مجاني تصل قيمته إلى 24 SAR عند دعوة أصحابك وعائلتك لتجربة كلين لاين. 
+        <p style="padding:5px 0; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.4;"><span style="float: right;"> شارك رمز الدعوة الخاص بك <span style="direction:ltr;"> [user invite code] : </span></span><font style="color:#1bb5e9; float: right;"><%= custom.user.referral_code %></font></p>
+        <p style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;  line-height:1.4; text-decoration:underline; clear:both;">لدعوة الأصحاب من داخل التطبيق، القائمة <-- غسيل الملابس مجاناً <-- إرسال دعوة</p>
+        </td>
+        </tr>
+    <tr style="background-color:#fff;">
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px;"><strong>إتصل بكلين لاين</strong></td>
+    </tr>
+   	<tr style="background-color:#fff;">
+        <td  style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.4;">للمعلومات والمساعدة يرجى الإتصال بفريق خدمة العملاء المستعد والمحترف: <br /><br /> 
+        <table border="1" align="center" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #ddd; border-collapse:collapse;">
+        <!--[if(gte mso 9)|(IE)]>
+        <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+        <![endif]-->
+        <tbody>
+            <tr>
+                <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">الدردشة المباشرة </td>
+                <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9; "> ميزة الدردشة المباشرة داخل التطبيق</td>
+            </tr>
+            <tr>
+                <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">رقم الجوال</td>
+                <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9; direction:rtl;"> +966 (0) 54 899 2456  <br /><font style="color:#000;">(9:00AM - 12:00AM)</font></td>
+            </tr>
+            <tr>
+                <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px;">البريد الإلكتروني</td>
+                <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#1bb5e9;">support@cleanlineapp.com </td>
+            </tr>
+        </tbody>
+        <!--[if(gte mso 9)|(IE)]>
+        </table>
+        <![endif]-->
+        </table>
+        </td>
+    </tr>
+	<tr style="background-color:#fff;">
+        <td style="padding:5px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.4;">
+        <table width="150" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center"><a href="#"><img src="http://app.cleanlineapp.com/production/img/twitter.png" width="32" height="32"></a></td>
+            <td align="center"><a href="#"><img src="http://app.cleanlineapp.com/production/img/instagram.png" width="32" height="32"></a></td>
+            <td align="center"><a href="#"><img src="http://app.cleanlineapp.com/production/img/facebook.png" width="32" height="32"></a></td>
+        </tr>
+      </table></td>
+   	</tr>
+</tbody>
+<!--[if(gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</table>
+</div> 
+</td>
+</tr>
+<tr style="background-color:#fff;">
+<td>&nbsp; </td>
+</tr>
+</tbody>
+<!--[if(gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</table>
+</body>
+</html>

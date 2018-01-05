@@ -1,0 +1,4231 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "This is a dev oott server.",
+		"version": "1.0.0",
+		"title": "oott APP",
+		"termsOfService": "http://oott.com/terms/",
+		"contact": {
+			"mobileNo": "testkiplinfo@gmail.com"
+		}
+	},
+	"host": "192.168.0.131:7472",
+	"basePath": "",
+	"tags": [
+		{
+			"name": "user",
+			"description": "Everything about user",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		},
+		{
+			"name": "business",
+			"description": "Everything about business",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		},
+		{
+			"name": "event",
+			"description": "Everything about events",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		},
+		{
+			"name": "connect",
+			"description": "Everything about connect group and messaging ",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		},
+		{
+			"name": "activity",
+			"description": "Everything about activity (follow, move etc)",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		},
+		{
+			"name": "employee",
+			"description": "Everything about employee",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		}
+	],
+	"schemes": [
+		"http"
+	],
+	"paths": {
+	"/register": {
+		"post": {
+			"tags": [
+				"user"
+			],
+			"summary": "Register users",
+			"description": "Register users",
+			"operationId": "register",
+			"consumes": [
+				"multipart/form-data",
+				"application/json",
+				"application/xml",
+				"application/x-www-form-urlencoded"
+			],
+			"parameters": [
+				{
+					"name": "os",
+					"description": "OS type", "required": false,
+					"type": "string",
+					"in": "header"
+				},
+				{
+					"name": "version",
+					"description": "OS type", "required": false,
+					"type": "string",
+					"in": "header"
+				},
+				{
+					"name": "name",
+					"description": "name",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "email",
+					"description": "name",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "password",
+					"description": "password",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "userType",
+					"description": "role of user customer/business/employee",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "deviceToken",
+					"description": "device id of mobile",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "mobileNo",
+					"description": "mobileNo",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "countryCode",
+					"description": "countryCode",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "otp",
+					"description": "otp number",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "username",
+					"description": "username",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "birthdate",
+					"description": "birthdate in std any date format",
+					"required": true,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "picture",
+					"description": "Profile picture of user",
+					"required": true,
+					"type": "file",
+					"in": "formData"
+				}
+			],
+			"produces": [
+				"application/json"
+			],
+			"responses": {
+				"200": {
+					"description": "Success message"
+				},
+				"201": {
+					"description": "Bad Request"
+				},
+				"203": {
+					"description": "Error message"
+				}
+			},
+			"security": []
+		}
+	},
+
+		"/socialRegister": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "social Register users",
+				"description": "social Register users",
+				"operationId": "socialRegister",
+				"consumes": [
+					"multipart/form-data",
+					"application/json",
+					"application/xml",
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "name",
+						"description": "name",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "email",
+						"description": "name",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "mobileNo",
+						"description": "mobileNo",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "countryCode",
+						"description": "countryCode",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "otp",
+						"description": "otp number",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "username",
+						"description": "username",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "birthdate",
+						"description": "birthdate in any std date format",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "userType",
+						"description": "role of user customer/business/employee",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "socialId",
+						"description": "social media auth string token ",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "sourceType",
+						"description": "social media type eg facebook",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "picture",
+						"description": "Profile picture of user",
+						"required": true,
+						"type": "file",
+						"in": "formData"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/sendOtp": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "send otp before signup/registration",
+				"description": "send otp before signup/registration",
+				"operationId": "sendOtp",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "body",
+						"description": "Request body (mobileNo) {\"mobileNo\":\"344443443434\", \"countryCode\":\"+40\", \"email\":\"oottadmin@yopmail.com\"  }",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/forgotPassword": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "forgot Password ",
+				"description": "forgot  Password",
+				"operationId": "forgotPassword",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "body",
+						"description": "Request body (email) {\"email\":\"ravi@yopmail.com\"}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/checkUser": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "check unique username, email, phone, social_id exists exists",
+				"description": "check unique username, email, phone, social_id exists exists",
+				"operationId": "checkUser",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "body",
+						"description": "request body (username), Example : {\"username\":\"rahul123\"}",
+						"required": false,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/getBusiness/{sid}": {
+			"post": {
+				"tags": [
+					"business"
+				],
+				"summary": "home/landing page business list ",
+				"description": "home/landing page business list ",
+				"operationId": "getBusiness",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"description": "Request body sortType (dist, friendsOnBusinessCount, attendeeCount, waitingTime) only and sort(1= lowest first or low to high or Ascending , -1 = hightest first or higt to low or Descending)  {\"longitude\":\"73.125486\", \"latitude\":\"23.125871\", \"scene\":\"axyz, abc\", \"sortType\":\"dist\", \"sort\":\"1\", \"isFavourite\":true }",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/getScene/{name}": {
+			"get": {
+				"tags": [
+					"business"
+				],
+				"summary": "get Scenes",
+				"description": "get Scene",
+				"operationId": "getScene",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "name",
+						"description": "name keyword min 3 char*",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/userRoles/": {
+			"get": {
+				"tags": [
+					"business"
+				],
+				"summary": "get roles",
+				"description": "get roles",
+				"operationId": "userRoles",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+		"/login": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "Login user with mobileNo and password",
+				"description": "Login user with mobileNo and password",
+				"operationId": "login",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "body",
+						"description": "Request body (email,password) {\"email\":\"mat@yopmail.com\",\"password\":\"12345678\", \"deviceToken\": \"xcvuhbj345cfvgbh\"}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/socialLogin": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "login with facebook or google",
+				"description": "login with facebook or google",
+				"operationId": "socialLogin",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "body",
+						"description": "Request body (email,password) {\"socialId\":\"44334343343\",\"sourceType\": \"facebook\", \"deviceToken\": \"xcvuhbj345cfvgbh\", \"email\": \"mat@yopmail.com\" }",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/changePassword/{sid}": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "change Password",
+				"description": "change Password",
+				"operationId": "changePassword",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"description": "currentPassword, newPassword ,{\"currentPassword\":\"123456\",\"newPassword\":\"123456\"}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/editProfile/{sid}": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "edit profile",
+				"description": "edit profile ",
+				"operationId": "editProfile",
+				"consumes": [
+					"multipart/form-data",
+					"application/json",
+					"application/xml",
+					"application/x-www-form-urlencoded"
+				],
+			"parameters": [
+				{
+					"name": "os",
+					"description": "OS type", "required": false,
+					"type": "string",
+					"in": "header"
+				},
+				{
+					"name": "version",
+					"description": "OS type", "required": false,
+					"type": "string",
+					"in": "header"
+				},
+				{
+					"name": "name",
+					"description": "name",
+					"required": false,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "birthdate",
+					"description": "birthdate",
+					"required": false,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "isNotify",
+					"description": "all notification or not",
+					"required": false,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "description",
+					"description": "description",
+					"required": false,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "address",
+					"description": "address",
+					"required": false,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"name": "gender",
+					"description": "gender",
+					"required": false,
+					"type": "string",
+					"in": "formData"
+				},
+				{
+					"in": "path",
+					"name": "sid",
+					"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "picture",
+					"description": "Profile picture of user",
+					"required": false,
+					"type": "file",
+					"in": "formData"
+				}
+			],
+			"produces": [
+				"application/json"
+			],
+			"responses": {
+				"200": {
+					"description": "Success message"
+				},
+				"201": {
+					"description": "Bad Request"
+				},
+				"203": {
+					"description": "Error message"
+				}
+			},
+			"security": []
+		}
+		},
+
+		"/deleteAccout/{sid}": {
+			"get": {
+				"tags": [
+					"user"
+				],
+				"summary": "delete account",
+				"description": "delete account ",
+				"operationId": "deleteAccout",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/viewUser/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"user"
+				],
+				"summary": "view user profile",
+				"description": "view user profile ",
+				"operationId": "viewUser",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of user who's profie goinig to be view",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/logout/{sid}": {
+			"get": {
+				"tags": [
+					"user"
+				],
+				"summary": "User Logout",
+				"description": "User Logout",
+				"operationId": "logout",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+
+
+		"/businessLikes/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"business"
+				],
+				"summary": "my friends On Business detail",
+				"description": "my friends On Business detail ",
+				"operationId": "friendsOnBusiness",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of business",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/friendsOnBusiness/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"business"
+				],
+				"summary": "my friends On Business detail",
+				"description": "my friends On Business detail ",
+				"operationId": "friendsOnBusiness",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of business",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/viewBusiness/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"business"
+				],
+				"summary": "view Business detail",
+				"description": "view  Business detail ",
+				"operationId": "viewBusiness",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of business",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "longitude",
+						"description": "longitude",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "latitude",
+						"description": "latitude",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/addBusinessImage/{sid}": {
+			"post": {
+				"tags": [
+					"business"
+				],
+				"summary": "add Business Image",
+				"description": "add Business Image",
+				"operationId": "addBusinessImage",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "file",
+						"description": "image",
+						"required": true,
+						"type": "file",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/addMenuImage/{sid}": {
+			"post": {
+				"tags": [
+					"business"
+				],
+				"summary": "add menu Image",
+				"description": "add menu Image",
+				"operationId": "addMenuImage",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "caption",
+						"description": "caption",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "file",
+						"description": "image",
+						"required": true,
+						"type": "file",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/removeBusinessImage/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"business"
+				],
+				"summary": "remove business Image",
+				"description": "remove business Image",
+				"operationId": "removeBusinessImage",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of image to be remove (4e01f9b4a591e847c101375c06a31)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/removeMenuImage/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"business"
+				],
+				"summary": "remove Menu Image",
+				"description": "remove menu Image",
+				"operationId": "removeMenuImage",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of image to be remove (4e01f9b4a591e847c101375c06a31)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/createProfile/{sid}": {
+			"post": {
+				"tags": [
+					"business"
+				],
+				"summary": "create a busines profile",
+				"description": "create a busines profile",
+				"operationId": "createProfile",
+				"consumes": [
+					"multipart/form-data",
+					"application/json",
+					"application/xml",
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "name",
+						"description": "business name",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "scene",
+						"description": "scene",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "about",
+						"description": "about",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "contact",
+						"description": "contact",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "location",
+						"description": "location of business",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "latitude",
+						"description": "latitude",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "longitude",
+						"description": "longitude",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "info",
+						"description": "general info",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "charges",
+						"description": "cover charges",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "dressCode",
+						"description": "dressCode",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "occupancy",
+						"description": "total occupancy",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "open",
+						"description": "opening/working time",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "coverPicture",
+						"description": "cover picture of user",
+						"required": false,
+						"type": "file",
+						"in": "formData"
+					},					
+					{
+						"name": "picture",
+						"description": "profile picture of user",
+						"required": false,
+						"type": "file",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+
+
+
+
+
+
+		"/addEmployee/{sid}": {
+			"post": {
+				"tags": [
+					"employee"
+				],
+				"summary": "add employee Image",
+				"description": "add employee Image",
+				"operationId": "addEmployee",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "name",
+						"description": "name",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "employeeRole",
+						"description": "employeeRole eg Manager, Bouncer",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "email",
+						"description": "email",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "password",
+						"description": "password",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "picture",
+						"description": "picture",
+						"required": true,
+						"type": "file",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/editEmployee/{sid}/{id}": {
+			"post": {
+				"tags": [
+					"employee"
+				],
+				"summary": "edit employee",
+				"description": "edit employeet",
+				"operationId": "editEmployee",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"description": "name",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "email",
+						"description": "email",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "employeeRole",
+						"description": "employeeRole",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "password",
+						"description": "password",
+						"required": false,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "picture",
+						"description": "picture",
+						"required": false,
+						"type": "file",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of employee (4e01f9b4a591e847c101375c06a31)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/listEmployee/{sid}": {
+			"get": {
+				"tags": [
+					"employee"
+				],
+				"summary": "list of all employee",
+				"description": "list of all employee",
+				"operationId": "listEmployee",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/viewEmployee/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"employee"
+				],
+				"summary": "view employee",
+				"description": "view employee",
+				"operationId": "viewEmployee",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of employee 4e01f9b4a591e84",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/deleteEmployee/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"employee"
+				],
+				"summary": "delete employee",
+				"description": "delete employee ",
+				"operationId": "deleteEmployee",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id to be remove (4e01f9b4a591e847c101375c06a31)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/addEvent/{sid}": {
+			"post": {
+				"tags": [
+					"event"
+				],
+				"summary": "add event Image",
+				"description": "add event Image",
+				"operationId": "addEvent",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "title",
+						"description": "title",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "description",
+						"description": "description",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "start",
+						"description": "start",
+						"required": true,
+						"type": "date",
+						"in": "formData"
+					},
+					{
+						"name": "end",
+						"description": "end",
+						"required": true,
+						"type": "date",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/listEvent/{sid}": {
+			"get": {
+				"tags": [
+					"event"
+				],
+				"summary": "list of all events",
+				"description": "list of all events",
+				"operationId": "listEvent",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/myBusinessGroup/{sid}": {
+			"get": {
+				"tags": [
+					"event"
+				],
+				"summary": "detail of my business group",
+				"description": "detail of my business group",
+				"operationId": "myBusinessGroup",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/upcommingEvent/{sid}": {
+			"get": {
+				"tags": [
+					"event"
+				],
+				"summary": "list of upcomming events",
+				"description": "list of upcomming events",
+				"operationId": "upcommingEvent",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/deleteEvent/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"event"
+				],
+				"summary": "delete event",
+				"description": "delete event ",
+				"operationId": "deleteEvent",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id to be remove (4e01f9b4a591e847c101375c06a31)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/eventAttendee/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"event"
+				],
+				"summary": "attendee of a event",
+				"description": "attendee of a event",
+				"operationId": "eventAttendee",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of event (4e01f9b4a591e847c101375c06a31)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/editEvent/{sid}/{id}": {
+			"post": {
+				"tags": [
+					"event"
+				],
+				"summary": "edit event",
+				"description": "edit event",
+				"operationId": "editEvent",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "title",
+						"description": "title",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "description",
+						"description": "description",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "start",
+						"description": "start",
+						"required": false,
+						"type": "date",
+						"in": "formData"
+					},
+					{
+						"name": "end",
+						"description": "end",
+						"required": false,
+						"type": "date",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of event (4e01f9b4a591e847c101375c06a31)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/updateStatus/{sid}": {
+			"post": {
+				"tags": [
+					"business", "event"
+				],
+				"summary": "update business status",
+				"description": "update business status",
+				"operationId": "updateStatus",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"description": "attended, waitingTime, status ,{\"attended\":20, \"waitingTime\":10 ,\"status\":\"Free one Bear on taking two \"}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/currentStatus/{sid}": {
+			"get": {
+				"tags": [
+					"business", "event"
+				],
+				"summary": " business status",
+				"description": " business status",
+				"operationId": "currentStatus",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/currentEvent/{sid}": {
+			"get": {
+				"tags": [
+					"event"
+				],
+				"summary": "view current event ",
+				"description": "view current event ",
+				"operationId": "currentEvent",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (d3849bbffe221e1ce574fd3c54d421a42fd27657f02a907bb69f4517171d9e1a)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+
+
+		"/addSubAccount/{sid}": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "add sub account",
+				"description": "add sub account",
+				"operationId": "addSubAccount",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"description": "email, password ,{\"email\":\"test@test.com\",\"password\":\"123456\"}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/viewGroup/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"connect"
+				],
+				"summary": "viewGroup",
+				"description": "viewGroup",
+				"operationId": "viewGroup",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "group id (595628454cd44f088fcd6aed)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/updateGroup/{sid}/{id}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "updateGroup",
+				"description": "updateGroup ",
+				"operationId": "updateGroup",
+				"consumes": [
+					"multipart/form-data",
+					"application/json",
+					"application/xml",
+					"application/x-www-form-urlencoded"
+				],
+			"parameters": [
+				{
+					"name": "name",
+					"description": "name",
+					"required": false,
+					"type": "string",
+					"in": "formData"
+				},
+	
+				{
+					"in": "path",
+					"name": "sid",
+					"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+					"required": true,
+					"type": "string"
+				},
+				 {
+					"in": "path",
+					"name": "id",
+					"description": "group_id",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "picture",
+					"description": "Profile picture of user",
+					"required": false,
+					"type": "file",
+					"in": "formData"
+				}
+			],
+			"produces": [
+				"application/json"
+			],
+			"responses": {
+				"200": {
+					"description": "Success message"
+				},
+				"201": {
+					"description": "Bad Request"
+				},
+				"203": {
+					"description": "Error message"
+				}
+			},
+			"security": []
+		}
+		},
+
+		"/inviteToGroup/{sid}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "invite user to group ",
+				"description": "invite user to group",
+				"operationId": "inviteToGroup",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "group_id",
+						"description": " group id & user_id",
+						"required": true,
+						"type": "string"
+					}
+					
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/acceptInvitation/{sid}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "acceptInvitation ",
+				"description": "acceptInvitation",
+				"operationId": "acceptInvitation",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "group_id",
+						"description": " business_id & group_id",
+						"required": true,
+						"type": "string"
+					}
+					
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/peopleOnGroup/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"connect"
+				],
+				"summary": "list of people On Group",
+				"description": "list of  people On Group",
+				"operationId": "peopleOnGroup",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "group id (595628454cd44f088fcd6aed)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/unblockUser/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"connect"
+				],
+				"summary": "unblockUser",
+				"description": "unblockUser",
+				"operationId": "unblockUser",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "user id (595628454cd44f088fcd6aed)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/blockUser/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"connect"
+				],
+				"summary": "blockUser ",
+				"description": "blockUser",
+				"operationId": "blockUser",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "user_id (595628454cd44f088fcd6aed)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/blockedUserList/{sid}": {
+			"get": {
+				"tags": [
+					"connect"
+				],
+				"summary": "blockedUserList",
+				"description": "blockedUserList",
+				"operationId": "blockedUserList",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/myGroups/{sid}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "list of my groups ",
+				"description": "list of my groups",
+				"operationId": "myGroups",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+						{
+						"name": "body",
+						"description": "Request body (comment) {\"canInvite\": true, \"canMove\":false, \"user_id\":123 }",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/groupmove/{sid}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "move with group ",
+				"description": "move with group ",
+				"operationId": "groupmove",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+						{
+						"name": "body",
+						"description": "Request body (comment) {\"group_id\": 123, \"business_id\":123}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/closeMoveRequest/{sid}/{id}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "close move invitation ",
+				"description": "close move invitation",
+				"operationId": "closeMoveRequest",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", 
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "activity id ",
+						"required": true,
+						"type": "string"
+					}
+						
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+		"/moveMeter/{sid}/{id}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "moveMeter ",
+				"description": "moveMeter",
+				"operationId": "moveMeter",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", 
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "group id ",
+						"required": true,
+						"type": "string"
+					}
+						
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/createGroup/{sid}": {
+			"post": {
+				"tags": [
+					"connect"
+				],
+				"summary": "create group",
+				"description": "create group",
+				"operationId": "createGroup",
+				"consumes": [
+					"multipart/form-data",
+					"application/json",
+					"application/xml",
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "name",
+						"description": "business name",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "leader",
+						"description": "leader id",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "coleader",
+						"description": "coleader id",
+						"required": true,
+						"type": "string",
+						"in": "formData"
+					},
+					{
+						"name": "canInvite",
+						"description": "can invite to group  ",
+						"required": true,
+						"type": "boolean",
+						"in": "formData"
+					},
+					{
+						"name": "canMove",
+						"description": "can move from group ",
+						"required": true,
+						"type": "boolean",
+						"in": "formData"
+					},
+					{
+						"name": "participant",
+						"description": "array of user ids",
+						"required": true,
+						"type": "array",
+						"in": "formData"
+					},
+					{
+						"name": "picture",
+						"description": "picture",
+						"required": true,
+						"type": "file",
+						"in": "formData"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+
+		"/myActivityList/{sid}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "list of all my activity",
+				"description": "list of all my activity",
+				"operationId": "myActivityList",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/checkinCommentList/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "checkin a busines",
+				"description": "checkin a busines",
+				"operationId": "checkinCommentList",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "checkin id (599d20d32da16822c5a76dad)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/checkinLike/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "like checkin ",
+				"description": "like checkin",
+				"operationId": "checkinLike",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "checkin id (599d20d32da16822c5a76dad)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/checkinUnlike/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "unlike checkin ",
+				"description": "unlike checkin",
+				"operationId": "checkinUnlike",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "checkin id (599d20d32da16822c5a76dad)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/commentOnCheckin/{sid}/{id}": {
+			"post": {
+				"tags": [
+					"activity"
+				],
+				"summary": "checkin a busines",
+				"description": "checkin a busines",
+				"operationId": "commentOnCheckin",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "checkin id (599d20d32da16822c5a76dad)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"description": "Request body (comment) {\"comment\":\"nice place grt drink\" }",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/myActivityList/{sid}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "list of all my activity",
+				"description": "list of all my activity",
+				"operationId": "myActivityList",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/followingsActivityList/{sid}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "list of all my followings activity",
+				"description": "list of all my followings activity",
+				"operationId": "followingsActivityList",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/unfollow/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "unfollow user",
+				"description": "unfollow user",
+				"operationId": "unfollow",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in user (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)" ,
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of follow user",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/like/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "like user/busines",
+				"description": "like user/busines",
+				"operationId": "like",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in user (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)" ,
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of like user/busines 59410b0b8c2d95218e53a081",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/unlike/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "unlike user/busines",
+				"description": "unlike user/busines",
+				"operationId": "like",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in user (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)" ,
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of like user/busines 59410b0b8c2d95218e53a081",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/move/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "move to business",
+				"description": "move to business",
+				"operationId": "move",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in user (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)" ,
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "business id",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/follow/{sid}/{id}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "follow user",
+				"description": "follow user",
+				"operationId": "follow",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"description": "id of follow user",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/followingsList/{sid}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "followings user",
+				"description": "followings user",
+				"operationId": "followingsList",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "page",
+						"description": "page no",
+						"required": false,
+						"type": "string",
+						"in": "query"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/suggestiveFriends/{sid}": {
+			"get": {
+				"tags": [
+					"user", "activity"
+				],
+				"summary": "suggestion to user",
+				"description": "suggestion to user",
+				"operationId": "suggestiveFriends",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "page",
+						"description": "page no",
+						"required": false,
+						"type": "string",
+						"in": "query"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/followersList/{sid}": {
+			"get": {
+				"tags": [
+					"activity"
+				],
+				"summary": "follow user",
+				"description": "follow user",
+				"operationId": "follow",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "os",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "version",
+						"description": "OS type", "required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"in": "path",
+						"name": "sid",
+						"description": "Session id of logged in users (f6be1256bd6742cd50d447883131ea995de8865e9b130ecda37093d8da79e7e0)",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		}
+
+	},
+	"securityDefinitions": {
+		"api_key": {
+			"type": "apiKey",
+			"name": "api_key",
+			"in": "header"
+		}
+	},
+	"definitions": {}
+}

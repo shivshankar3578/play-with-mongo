@@ -1,0 +1,146 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+
+<body style="background:#999;">
+    <table style="border: none; max-width: 600px; margin: 0 auto; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; table-layout: fixed;" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr style="background: #fff;">
+                <td>
+                    <table style="border: none;" border="0" width="100%" cellspacing="0" cellpadding="0" align="center">
+                        <tbody>
+                            <tr style="background-color: #fff;">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="center"><img style="max-width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #000000;" src="cleanline-logo.png" alt="Cleanline" width="200" height="105" /></td>
+                            </tr>
+                            <tr style="background-color: #fff;">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr style="background-color: #fff;">
+                                <td>
+                                    <div class="editabletemplatebox" style="font-family: Arial, Helvetica, sans-serif; font-size: 22px; color: #000000; padding: 0 30px;">‫(‬ ‫‪ ‫أو‬ ‫نقدي‬ ‫)‬ ‫الدفع‬
+                                        <%= custom.order_detail.final_price %>
+                                            <p style="font-size: 14px;">‫الين‪:‬‬ ‫كلين‬ ‫من‬ ‫مكافأتي‬ ‫نقاط‬ <span style="color: #09f;"> <%= custom.order_detail.points_earned %></span></p>
+                                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #000; margin: 0; padding: 0 0 10px;">‫الين‬ ‫كلين‬ ‫الختيارك‬ ‫شكراً‬
+                                                <%= custom.user.firstName %>
+                                            </p>
+                                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #000; margin: 0; padding: 0; font-weight: bold;">
+                                                <%=  new Date().toLocaleDateString() %>
+                                            </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr style="background-color: #fff;">
+                <td>&nbsp;</td>
+            </tr>
+            <tr style="background-color: #fff;">
+                <td>
+                    <div class="editabletemplatebox" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #000000; line-height: 17px; padding: 0 30px;">
+                        <table style="border: 0px solid #ddd; border-collapse: collapse;" border="0" width="100%" cellspacing="0" cellpadding="0" align="center">
+                            <tbody>
+                                <tr style="background-color: #fff;">
+                                    <td>
+                                        <hr />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 14px;" align="left"><strong>‫فاتورتك‬</strong></td>
+                                </tr>
+                                <tr style="background-color: #fff;">
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr style="background-color: #fff;">
+                                    <td>
+                                        <table style="border: 1px solid #ddd; border-collapse: collapse;" border="1" width="100%" cellspacing="0" cellpadding="0" align="center">
+                                            <tbody>
+                                                <tr style="background-color: #71cdf4;">
+                                                    <th style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="center">‫الخدمة‬</th>
+                                                    <th style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="center">‫الصنف‬</th>
+                                                    <th style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="center">‫الكمية‬</th>
+                                                    <th style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="center">‫الوحدة‬ ‫سعر‬ ‫)‪(SAR‬‬</th>
+                                                    <th style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="center">‫الفرعي‬ ‫المجموع‬ ‫)‪(SAR‬‬</th>
+                                                </tr>
+                                                <% custom.order_detail.data.forEach(function(value) {  
+                                                     value.item_details.forEach(function(item){ %>
+                                                    <tr>
+                                                        <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="left">
+                                                            <%= value. category_name_ar %>
+                                                        </td>
+                                                        <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="left">
+                                                            <%= item. item_name_ar %>
+                                                        </td>
+                                                        <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="left">
+                                                            <%= item. count %>
+                                                        </td>
+                                                        <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="right">
+                                                            <%= item. unit_price %>
+                                                        </td>
+                                                        <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="right">
+                                                            <%= item. items_price%>
+                                                        </td>
+                                                    </tr>
+                                                    <%})%>
+                                                        <% }) %>
+                                                            <tr>
+                                                                <tr style="background-color: #71cdf4;">
+                                                                    <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold;" colspan="4" align="left">‫المجموع‬
+                                                                        <br />‫الدفع‬ ‫طريقة‬ </td>
+                                                                    <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold;" align="right">SAR
+                                                                        <%= custom.order_detail.final_price %>
+                                                                            <br />‫نقدي‬ </td>
+                                                                </tr>
+                                                                <tr style="background-color: #ffffff;">
+                                                                    <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" colspan="4" align="left">‫الممنوحة‬ ‫النقاط‬</td>
+                                                                    <td style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #1bb5e9;" align="right">
+                                                                        <%= custom.order_detail.points_earned %>
+                                                                    </td>
+                                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    </tr>
+                                    <tr style="background-color: #fff;">
+                                        <td>
+                                            <p style="padding: 5px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: underline;">‫شكوى‬ ‫تقديم‬ ‫
+                                                <‬ ‫‪--‬‬ ‫المنتهية‬ ‫الطلبات‬ ‫<‬ ‫‪--‬‬ ‫طلباتي‬ ‫<‬ ‫‪--‬‬ ‫القائمة‬ ‫التطبيق‪،‬‬ ‫داخل‬ ‫من‬ ‫شكوى‬ ‫ديم‬ ‫ق‬ ‫لت‬</p>
+                                                    <hr />
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #fff;">
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px 0; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 14px;" align="left"><strong>‫وألصحابك؟‬ ‫لك‬ ‫مجاني‬ ‫غسيل‬</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px 0; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4;" align="left">‫الين‪.‬‬ ‫كلين‬ ‫لتجربة‬ ‫وعائلتك‬ ‫أصحابك‬ ‫دعوة‬ ‫عند‬ ‫‪SAR‬‬ ‫‪42‬‬ ‫إلى‬ ‫قيمته‬ ‫تصل‬ ‫مجاني‬ ‫طلب‬ ‫على‬ ‫إحصل‬.
+                                            <p style="padding: 5px 0; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4;">‫بك‪:‬‬ ‫الخاص‬ ‫الدعوة‬ ‫رمز‬ ‫شارك‬ <span style="color: #1bb5e9;"><%= custom.user.referral_code %></span></p>
+                                            <p style="padding: 5px 0; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; font-style: italic; text-decoration: underline;">‫دعوة‬ ‫إرسال‬ ‫
+                                                <‬ ‫‪--‬‬ ‫مجانا‬ ‫المالبس‬ ‫غسيل‬ ‫<‬ ‫‪--‬‬ ‫القائمة‬ ‫التطبيق‪،‬‬ ‫داخل‬ ‫من‬ ‫األصحاب‬ ‫لدعوة‬</p>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                </tr>
+        </tbody>
+        <!-- [if(gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+    </table>
+    <p>&nbsp;</p>
+    <!-- [if(gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</body>
+
+</html>
